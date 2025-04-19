@@ -2,7 +2,8 @@
 
 Minebnb is a parody website of Airbnb. Its a fictional website where villagers in minecraft can post their
 
-**[Link to Live Demo](https://www.minebnb.net/search)** ---
+**[Link to Live Demo](https://www.minebnb.net/search)**
+**[Trello](https://trello.com/b/FteqzvoY/minebnb)**
 
 ---
 
@@ -11,7 +12,6 @@ Minebnb is a parody website of Airbnb. Its a fictional website where villagers i
 * **Frontend:** React, Redux, JavaScript 
 * **Database:** PostgreSQL
 * **Styling:** tailwindCSS
-* **Image Storage:** S3 bucket
 
 ---
 
@@ -29,6 +29,6 @@ Minebnb is a parody website of Airbnb. Its a fictional website where villagers i
 2.  **Access the application:**
     Open your browser and navigate to `http://localhost:3000`
 
-## Author 🧑‍💻
+## Author
 
 * **ThadsEgar** - [GitHub Profile](https://github.com/ThadsEgar)
