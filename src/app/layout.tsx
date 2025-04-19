@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Property Finder",
-  description: "Find your dream property",
+  title: "minebnb",
+  description: "Find your dream vacation minecraft rental.",
 };
 
 export default function RootLayout({

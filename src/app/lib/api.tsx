@@ -3,7 +3,7 @@ import { supabase } from "./supabase"
 export const getListings = async () => {
     const { data, error } = await supabase.from('Properties').select(`*, Images!listing_id(*)`)
     if (error) {
-        console.log("Error fetching listings:", error)
+        console.error("Error fetching listings:", error)
         throw new Error(error.message)
     }
     const listingsWithImages = data.map((listing) => {
@@ -12,19 +12,23 @@ export const getListings = async () => {
             ...listing,
             images: images
         }
-    })
-
-    const sourceItem = listingsWithImages[0]
-  
-    // Create 50 copies in a flat array
-    const duplicated = Array(50).fill(null).map((_, index) => ({
-        ...sourceItem,
-        id: `${sourceItem.id}-copy-${index}`,
-        title: `${sourceItem.title} ${index + 1}`,
-    }))
-    
-    return duplicated
+    })  
+    return listingsWithImages
 }
+
+export const getPropertyDetailsPage = async (propertyId) => {
+    const { data, error } = await supabase.from('Properties').select('*, Images!listing_id(*)').eq('id', propertyId).single();
+    if (error) {
+        console.error('Error fetching property listing page: ', error)
+    }
+    const pdpWithImages = {
+        ...data,
+        image_urls: convertImageUrls(data.Images)
+    }
+    console.log(pdpWithImages)
+    return pdpWithImages
+}
+
 
 const convertImageUrls = (images) => {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL

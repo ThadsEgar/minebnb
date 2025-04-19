@@ -15,7 +15,7 @@ const DynamicMap = () => {
     <MapContainer 
         center={[0, 0]}
         zoom={3}
-        style={{ height: '500px', width: '500px' }}
+        style={{ height: '500px', width: '750px' }}
         maxBounds={bounds}
     >
       <ImageOverlay

@@ -1,13 +1,25 @@
 import Image from "next/image";
+import { useSearch } from "../context/SearchContext";
+
+export const mockFilterPairs = [
+  {name: "Meadow", imageLocation: "/filterBar/meadow.png"},
+  {name: "Savana", imageLocation: "/filterBar/savannah.png"},
+  {name: "Desert", imageLocation: "/filterBar/desert.png"},
+  {name: "Plains", imageLocation: "/filterBar/plains.png"},
+  {name: "Snowy", imageLocation: "/filterBar/snowy.png"},
+]
 
 const Filters = () => {
-  const fakeFilters = ["Filter1", "Filter2", "Filter3", "Filter4", "Filter5", "Filter6", "Filter7", "Filter8", "Filter9", "Filter10"]
+  const {filters, setFilters} = useSearch();
+  const filterClickCallback = (filter) => {
+    setFilters(filter);
+  }
     return (
       <div className="border-b-2 border-gray-300 py-4">
         <div className="flex items-center justify-center min-h-3 text-black gap-8">
           {
-            fakeFilters.map((filter) => (
-              <Filter key={filter}/>
+            mockFilterPairs.map((filterPair) => (
+              <Filter key={filterPair.name} filterPair={filterPair} filterClickCallback={filterClickCallback}/>
             ))
           }
         </div>
@@ -16,12 +28,14 @@ const Filters = () => {
   }
 
 
-const Filter = () => {
+const Filter = ({filterPair, filterClickCallback}) => {
+  const filterName = filterPair.name;
+  const imageLocation = filterPair.imageLocation;
   return (
-    <div className="flex flex-col items-center gap-2">
-        <Image src={"https://placehold.co/100x100/png?text=House"} alt="Filter" width={48} height={48} />
-        <div className="text-sm">Sample Filter</div>
-    </div>
+    <button className="flex flex-col  p-2 items-center gap-2 hover:bg-gray-200" onClick={() => filterClickCallback(filterName)}>
+        <Image src={`${imageLocation}`} alt="Filter" width={40} height={40} />
+        <div className="text-sm">{filterName}</div>
+    </button>
   )
 }
 

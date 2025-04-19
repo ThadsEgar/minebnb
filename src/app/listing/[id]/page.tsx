@@ -1,22 +1,46 @@
+"use client";
+import React, {useEffect, use} from 'react';
 import MainViewContainer from "@/app/components/container";
 import Map from "@/app/components/Map";
 import Header from "@/app/components/Header";
 import Image from "next/image";
+import PdpCalender from "@/app/components/PdpCalendar";
 
-export default function PropertyListingPage() {
+import {
+  PropertyDetailsContextProvider,
+  usePdp,
+} from "../../context/PropertyDetailsContext";
+
+export default function PropertyListingPage({ params }) {
   return (
-    <MainViewContainer>
-      <div className="text-black">
-        <Header />
-        <ListingTitle />
-        <ListingGallery />
-        <ListingTwoColumn />
-        <Map />
-      </div>
-    </MainViewContainer>
+    <PropertyDetailsContextProvider >
+      <MainViewContainer className="mx-64">
+        <div className="text-black">
+          <ListingWrapper listingId={params.id}/>
+        </div>
+      </MainViewContainer>
+    </PropertyDetailsContextProvider>
   );
 }
 
+const ListingWrapper = ({listingId}) => {
+  const { setPropertyId } = usePdp();
+
+  useEffect(() => {
+    console.log('loaded')
+    setPropertyId(listingId);
+  }, [listingId])
+
+  return (
+    <div>
+      <Header />
+      <ListingTitle />
+      <ListingGallery />
+      <ListingTwoColumn />
+      <Map />
+    </div>
+  );
+};
 const ListingTitle = () => {
   return (
     <div className="py-4">
@@ -79,34 +103,36 @@ const ListingGallery = () => {
 const ListingTwoColumn = () => {
   return (
     <div className="py-4">
-      <div className="flex gap-4">
+      <div className="flex justify-between">
         <div className="w-2/3">
-          <PropertyType />
-          <HostProfile />
+          <div className="flex flex-col">
+            <PropertyInfo />
+            <HostProfile />
+            <PropertyHighlights />
+            <PropertyDescription />
+          </div>
         </div>
-        <div className="w-1/3">
-          <Calendar />
+        <div className="ml-16 w-1/3">
+          <PdpCalender />
         </div>
       </div>
     </div>
   );
 };
 
-const PropertyType = () => {
+const PropertyInfo = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-medium">House in the overworld</h1>
-      <p className="text-2xl font-normal">
-        4 guests - 2 bedrooms - 2 beds - 1 bath
-      </p>
-      <p> 4.4/5 - 100 reviews</p>
+    <div className="py-4 border-b-1 border-gray-300">
+      <h1 className="text-2xl font-medium">House in the overworld</h1>
+      <p className="font-normal">4 guests - 2 bedrooms - 2 beds - 1 bath</p>
+      <p className="font-bold"> 4.4/5 - 100 reviews</p>
     </div>
   );
 };
 
 const HostProfile = () => {
   return (
-    <div className="py-4">
+    <div className="py-8 border-b-1 border-gray-300">
       <div className="flex gap-4 ">
         <Image
           className="rounded-full"
@@ -124,12 +150,48 @@ const HostProfile = () => {
   );
 };
 
-const Calendar = () => {
+const PropertyHighlights = () => {
   return (
-    <div>
-      <div className="h-[450px] w-[300px] outline-1 shadow-xl rounded-4">
-        <div className="text-2xlfont-medium">5 emeralds for 1 night</div>
+    <div className="py-8 border-b-1 border-gray-300">
+      <PropertyHighlight
+        icon="🏠"
+        text="Cave"
+        subtext="1 hour away from the nearest cave"
+      />
+      <PropertyHighlight
+        icon="🏠"
+        text="Self check-in"
+        subtext="Check yourself in with the lockbox"
+      />
+      <PropertyHighlight
+        icon="🏠"
+        text="Hot Springs"
+        subtext="Soak in the hot springs"
+      />
+    </div>
+  );
+};
+
+const PropertyHighlight = ({ icon, text, subtext }) => {
+  return (
+    <div className="flex flex-row gap-12">
+      <div className="text-4xl flex justify-center items-center">{icon}</div>
+      <div className="flex flex-col justify-center">
+        <div className="font-bold text-gray-800">{text}</div>
+        <div className="font-light text-gray-500">{subtext}</div>
       </div>
     </div>
+  );
+};
+
+const PropertyDescription = () => {
+  return (
+    <p className="font-light text-gray-800 py-8 border-b-1 border-gray-300">
+      Escape to this charming lakeside house nestled in a serene plains biome,
+      offering breathtaking views of a sparkling lake framed by lily pads and
+      distant mountains. Perfect for adventurers seeking a cozy base or a
+      peaceful getaway, this custom-built Minecraft home combines rustic charm
+      with modern conveniences.
+    </p>
   );
 };
