@@ -12,12 +12,14 @@ import {
 } from "../../context/PropertyDetailsContext";
 
 export default function PropertyListingPage({ params }) {
-  const unwrappedPrams = use(params);
+  const unwrappedParams = use(params);
+
+  // TODO TYPE THIS
   return (
     <PropertyDetailsContextProvider>
       <MainViewContainer className="mx-64">
         <div className="text-black">
-          <ListingWrapper listingId={unwrappedPrams.id} />
+        <ListingWrapper listingId={(unwrappedParams as any).id} />
         </div>
       </MainViewContainer>
     </PropertyDetailsContextProvider>
