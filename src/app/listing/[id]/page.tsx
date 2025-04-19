@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, use} from 'react';
+import React, { useEffect, use } from "react";
 import MainViewContainer from "@/app/components/container";
 import Map from "@/app/components/Map";
 import Header from "@/app/components/Header";
@@ -12,24 +12,25 @@ import {
 } from "../../context/PropertyDetailsContext";
 
 export default function PropertyListingPage({ params }) {
+  const unwrappedPrams = use(params);
   return (
-    <PropertyDetailsContextProvider >
+    <PropertyDetailsContextProvider>
       <MainViewContainer className="mx-64">
         <div className="text-black">
-          <ListingWrapper listingId={params.id}/>
+          <ListingWrapper listingId={unwrappedPrams.id} />
         </div>
       </MainViewContainer>
     </PropertyDetailsContextProvider>
   );
 }
 
-const ListingWrapper = ({listingId}) => {
+const ListingWrapper = ({ listingId }) => {
   const { setPropertyId } = usePdp();
 
   useEffect(() => {
-    console.log('loaded')
+    console.log("loaded");
     setPropertyId(listingId);
-  }, [listingId])
+  }, [listingId]);
 
   return (
     <div>
@@ -42,11 +43,18 @@ const ListingWrapper = ({listingId}) => {
   );
 };
 const ListingTitle = () => {
+  const { propertyDetailsResponse, loading } = usePdp();
+
+  if (loading || !propertyDetailsResponse) {
+    return <div>Loading...</div>;
+  }
+
+  const { title } = propertyDetailsResponse;
   return (
     <div className="py-4">
       <div className="text-4xl font-medium flex flex-row content-center justify-between">
         <div>
-          <h1>Minecraft house amazing view</h1>
+          <h1>{title}</h1>
         </div>
         <div className="text-2xl text-gray-500 flex flex-row gap-8">
           <button>Share</button>
@@ -58,42 +66,101 @@ const ListingTitle = () => {
 };
 
 const ListingGallery = () => {
+  const { propertyDetailsResponse, loading } = usePdp();
+
+  if (loading || !propertyDetailsResponse) {
+    return (
+      <div className="py-4">
+        <div className="flex flex-row gap-4 rounded-4">
+          <div className="w-1/2">
+            <Image
+              className="animate-pulse"
+              src="https://placehold.co/900x900/png?text=HeroImage"
+              alt="House"
+              width={900}
+              height={900}
+            />
+          </div>
+          <div className="w-1/2 grid grid-cols-2 gap-4 ">
+            <Image
+              className="animate-pulse"
+              src="https://placehold.co/300x300/png?text=Image"
+              alt="House"
+              width={450}
+              height={450}
+            />
+            <Image
+              className="animate-pulse"
+              src="https://placehold.co/300x300/png?text=Image"
+              alt="House"
+              width={450}
+              height={450}
+            />
+            <Image
+              className="animate-pulse"
+              src="https://placehold.co/300x300/png?text=Image"
+              alt="House"
+              width={450}
+              height={450}
+            />
+            <Image
+              className="animate-pulse"
+              src="https://placehold.co/300x300/png?text=Image"
+              alt="House"
+              width={450}
+              height={450}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { image_urls } = propertyDetailsResponse;
   return (
     <div className="py-4">
       <div className="flex flex-row gap-4 rounded-4">
-        <div className="w-1/2">
+        <div className="w-1/2 relative h-[510px]">
           <Image
-            src="https://placehold.co/900x900/png?text=HeroImage"
+            src={image_urls[0]}
             alt="House"
-            width={900}
-            height={900}
+            fill={true}
+            className="object-cover"
           />
         </div>
-        <div className="w-1/2 grid grid-cols-2 gap-4 ">
-          <Image
-            src="https://placehold.co/300x300/png?text=Image"
-            alt="House"
-            width={450}
-            height={450}
-          />
-          <Image
-            src="https://placehold.co/300x300/png?text=Image"
-            alt="House"
-            width={450}
-            height={450}
-          />
-          <Image
-            src="https://placehold.co/300x300/png?text=Image"
-            alt="House"
-            width={450}
-            height={450}
-          />
-          <Image
-            src="https://placehold.co/300x300/png?text=Image"
-            alt="House"
-            width={450}
-            height={450}
-          />
+        <div className="w-1/2 grid grid-cols-2 gap-4">
+          <div className="relative h-[245px]">
+            <Image
+              src={image_urls[1]}
+              alt="House"
+              fill={true}
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-[245px]">
+            <Image
+              src={image_urls[2]}
+              alt="House"
+              fill={true}
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-[245px]">
+            <Image
+              src={image_urls[3]}
+              alt="House"
+              fill={true}
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-[245px]">
+            <Image
+              src={image_urls[4]}
+              alt="House"
+              fill={true}
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -121,10 +188,19 @@ const ListingTwoColumn = () => {
 };
 
 const PropertyInfo = () => {
+  const { propertyDetailsResponse, loading } = usePdp();
+  if (loading || !propertyDetailsResponse) {
+    return <div>Loading...</div>;
+  }
+  const { property_type, bedrooms, bathrooms } = propertyDetailsResponse;
+
   return (
     <div className="py-4 border-b-1 border-gray-300">
-      <h1 className="text-2xl font-medium">House in the overworld</h1>
-      <p className="font-normal">4 guests - 2 bedrooms - 2 beds - 1 bath</p>
+      <h1 className="text-2xl font-medium">{property_type} in the overworld</h1>
+      <p className="font-normal">
+        {bedrooms * 2} guests - {bedrooms} bedrooms - {bedrooms * 2} beds -{" "}
+        {bathrooms} bath
+      </p>
       <p className="font-bold"> 4.4/5 - 100 reviews</p>
     </div>
   );
@@ -185,13 +261,14 @@ const PropertyHighlight = ({ icon, text, subtext }) => {
 };
 
 const PropertyDescription = () => {
+  const { propertyDetailsResponse, loading } = usePdp();
+  if (loading || !propertyDetailsResponse) {
+    return <div>Loading...</div>;
+  }
+  const { property_description } = propertyDetailsResponse;
   return (
     <p className="font-light text-gray-800 py-8 border-b-1 border-gray-300">
-      Escape to this charming lakeside house nestled in a serene plains biome,
-      offering breathtaking views of a sparkling lake framed by lily pads and
-      distant mountains. Perfect for adventurers seeking a cozy base or a
-      peaceful getaway, this custom-built Minecraft home combines rustic charm
-      with modern conveniences.
+      {property_description}
     </p>
   );
 };

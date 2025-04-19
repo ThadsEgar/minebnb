@@ -32,8 +32,8 @@ const Filter = ({filterPair, filterClickCallback}) => {
   const filterName = filterPair.name;
   const imageLocation = filterPair.imageLocation;
   return (
-    <button className="flex flex-col  p-2 items-center gap-2 hover:bg-gray-200" onClick={() => filterClickCallback(filterName)}>
-        <Image src={`${imageLocation}`} alt="Filter" width={40} height={40} />
+    <button className="flex flex-col p-1 items-center gap-2 text-gray-500 hover:bg-gray-200" onClick={() => filterClickCallback(filterName)}>
+        <Image src={`${imageLocation}`} alt="Filter" width={30} height={30} />
         <div className="text-sm">{filterName}</div>
     </button>
   )

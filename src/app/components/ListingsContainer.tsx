@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import { useSearch } from "../context/SearchContext";
 
 const ListingsContainer = () => {
-  const { searchResults, fetchSearchResults, loading, error, totalResults } =
-    useSearch();
+  const { searchResults, fetchSearchResults, loading, error, totalResults } = useSearch();
 
   const [visibleCount, setVisibleCount] = useState(0);
 

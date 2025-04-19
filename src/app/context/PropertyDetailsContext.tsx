@@ -28,6 +28,8 @@ function propertyDetailsReducer(state, action) {
       return {...state, propertyDetailsResponse: action.payload}
     case "SET_ERROR":
       return {...state, error: action.payload}
+    case "SET_LOADING":
+      return {...state, loading: action.payload}
     default:
       return state;
   }
@@ -42,6 +44,7 @@ export const PropertyDetailsContextProvider = ({ children }) => {
   }, [state.propertyId]);
 
   const fetchPropertyDetailsPage = useCallback(async () => {
+    dispatch({type: "SET_LOADING", payload: true})
     try {
       const data = await getPropertyDetailsPage(state.propertyId)
       dispatch({type: "SET_PROPERTY_DETAILS_RESPONSE", payload: data})
@@ -50,6 +53,7 @@ export const PropertyDetailsContextProvider = ({ children }) => {
       console.error(e); // TODO ADD ERROR STATE
       dispatch({type: "SET_ERROR", e})
     }
+    dispatch({type: "SET_LOADING", payload: false})
   }, [state.propertyId])
 
   useEffect(() => {
