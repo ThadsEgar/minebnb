@@ -1,5 +1,5 @@
 "use client";
-import MainViewContainer from "../components/container";
+import MainViewContainer from "../components/utils/container";
 import Filters from "../components/FilterBar";
 import ListingsContainer from "../components/ListingsContainer";
 import Header from "../components/Header";

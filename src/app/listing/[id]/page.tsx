@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, use } from "react";
-import MainViewContainer from "@/app/components/container";
+import MainViewContainer from "@/app/components/utils/container";
 import Map from "@/app/components/Map";
 import Header from "@/app/components/Header";
 import Image from "next/image";
-import PdpCalender from "@/app/components/PdpCalendar";
+import PdpCalender from "@/app/components/pdp/calendar/PdpCalendar";
 
 import {
   PropertyDetailsContextProvider,

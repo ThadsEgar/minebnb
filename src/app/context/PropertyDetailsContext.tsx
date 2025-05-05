@@ -49,6 +49,7 @@ export const PropertyDetailsContextProvider = ({ children }) => {
       const data = await getPropertyDetailsPage(state.propertyId)
       dispatch({type: "SET_PROPERTY_DETAILS_RESPONSE", payload: data})
       console.log("fetchPropertyDetailsPage called")
+      console.log("data", state.propertyDetailsResponse)
     } catch (e) {
       console.error(e); // TODO ADD ERROR STATE
       dispatch({type: "SET_ERROR", e})
