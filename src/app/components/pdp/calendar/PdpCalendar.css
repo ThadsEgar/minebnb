@@ -12,6 +12,10 @@
     padding: 16px;
 }
 
+.calendar__price{
+    font-style: bold;
+}
+
 .calendar__reserve {
     border-radius: 4px;
     background-color: rgb(4, 177, 45);
@@ -45,4 +49,9 @@
     border-color: black;
 }
 
-
+.calendar__guests {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 8px;
+}

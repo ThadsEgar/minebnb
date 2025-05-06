@@ -44,7 +44,7 @@ const Footer = () => {
             About
           </li>
           <li className="font-light text-gray-500  hover:text-blue-300 duration-200">
-            Contact Me
+            Legal
           </li>
         </div>
         <div className="flex flex-col gap-2 py-4">

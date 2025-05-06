@@ -181,7 +181,7 @@ const ListingTwoColumn = () => {
             <PropertyDescription />
           </div>
         </div>
-        <div className="ml-16 w-1/3">
+        <div className="ml-16 w-1/3 justify-items-end">
           <PdpCalender />
         </div>
       </div>
