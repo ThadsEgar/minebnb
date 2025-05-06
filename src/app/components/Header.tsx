@@ -1,3 +1,5 @@
+import {SearchBar} from '../components/shared/SearchBar/SearchBar';
+
 const Header = () => {
     return (
       <div className="border-b-2 border-gray-300">
@@ -7,6 +9,7 @@ const Header = () => {
               <a href="/search">minebnb</a>
             </h1>
           </div>
+          <SearchBar />
           <div className="">
             <ul className="text-black flex gap-8 py-8 justify-between">
               <li className="hover:bg-green-300 px-3 py-2 text-xl font-medium transition-colors duration-200 font-sans rounded-full outline-1">
