@@ -1,6 +1,8 @@
 .calendar {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 32px;
     gap: 12px;
     height: 300px;
     width: 345px;
@@ -12,22 +14,45 @@
     padding: 16px;
 }
 
-.calendar__price{
+.calendar__price {
     font-style: bold;
+}
+
+.calendar__emeralds {
+    font-size: 1.25em;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 .calendar__reserve {
     border-radius: 4px;
     background-color: rgb(4, 177, 45);
     color: white;
-    height: 2.5rem;
+    height: 3em;
+}
+
+.calendar__input__text {
+    font-size: .75em;
+}
+
+.calendar__input__date {
+    font-size: .90em;
+}
+
+.calendar__guests__text {
+    font-size: .75em;
+}
+
+.calendar__guests__input {
+    font-size: .90em;
 }
 
 .calendar__reserve:hover {
     background-color: rgb(15, 208, 60);
     cursor: pointer;
     color: white;
-    height: 2.5rem;
+    height: 3rem;
 }
 
 .calendar__inputgroup {
@@ -42,16 +67,18 @@
     flex: 1;
     width: auto;
     height: 4rem;
+    padding: 8px;
     cursor: pointer;
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: grey;
 }
 
 .calendar__guests {
     border-style: solid;
+    padding:8px;
     border-width: 1px;
-    border-color: black;
+    border-color: grey;
     border-radius: 8px;
 }

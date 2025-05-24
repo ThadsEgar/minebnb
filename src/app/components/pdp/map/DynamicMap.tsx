@@ -23,7 +23,7 @@ const mapStyles = {
 const DynamicMapContainer = () => {
   return (
     <div className="dynamicmap__container">
-      <h2 className="dynamicmap__header">Where you&apos;ll be</h2>
+      <h2 className="dynamicmap__header">Coordinates</h2>
       <DynamicMap />
     </div>
   )

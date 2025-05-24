@@ -5,7 +5,7 @@ import Map from "@/app/components/pdp/map/Map";
 import Header from "@/app/components/Header";
 import Image from "next/image";
 import PdpCalender from "@/app/components/pdp/calendar/PdpCalendar";
-import ReviewContainer from "@/app/components/pdp/reviews/ReviewSection"
+import ReviewContainer from "@/app/components/pdp/reviews/ReviewSection";
 
 import {
   PropertyDetailsContextProvider,
@@ -21,7 +21,7 @@ export default function PropertyListingPage({ params }) {
     <PropertyDetailsContextProvider>
       <MainViewContainer className="mx-64">
         <div className="text-black">
-        <ListingWrapper listingId={(unwrappedParams as any).id} />
+          <ListingWrapper listingId={(unwrappedParams as any).id} />
         </div>
       </MainViewContainer>
       <Footer />
@@ -42,7 +42,9 @@ const ListingWrapper = ({ listingId }) => {
       <Header />
       <ListingTitle />
       <ListingGallery />
-      <ListingTwoColumn />
+      <div className="relative">
+        <ListingTwoColumn />
+      </div>
       <ReviewContainer />
       <Map />
     </div>
@@ -204,7 +206,7 @@ const PropertyInfo = () => {
     <div className="py-4 border-b-1 border-gray-300">
       <h1 className="text-2xl font-medium">{property_type} in the overworld</h1>
       <p className="font-normal">
-        {bedrooms * 2} guests · {bedrooms} bedroomss · {bedrooms * 2} beds · {" "}
+        {bedrooms * 2} guests · {bedrooms} bedroomss · {bedrooms * 2} beds ·{" "}
         {bathrooms} bath
       </p>
       <p className="font-bold"> 4.4/5 - 100 reviews</p>
@@ -273,8 +275,20 @@ const PropertyDescription = () => {
   }
   const { property_description } = propertyDetailsResponse;
   return (
-    <p className="font-light text-gray-800 py-8">
-      {property_description}
-    </p>
+    <p className="font-light text-gray-800 py-8">{property_description}</p>
   );
 };
+
+const AmenitySection = () => {
+  return (
+    <p>What this humble abode offers</p>
+  );
+}
+
+const AmenityPair = ({amenityIcon, amenity}) => {
+  return (
+    <div>
+
+    </div>
+  )
+}

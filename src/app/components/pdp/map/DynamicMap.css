@@ -1,5 +1,7 @@
 .dynamicmap__header {
     font-size: 2em;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .dynamicmap__container {
