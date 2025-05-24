@@ -19,7 +19,6 @@ export default function Search() {
           <ListingsContainer />
         </MainViewContainer>
         <Footer />
-
       </div>
     </SearchContextProvider>
   );

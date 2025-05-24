@@ -1,0 +1,47 @@
+.review__container {
+    padding-top: 32px;
+    border-top: 2px;
+    border-style: solid;
+    border-color: var(--color-gray-300);
+    padding-bottom: 32px;
+}
+
+.review__highlight {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.review__smalldescription {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.review__longdescription {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.review__highlight {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.review__score {
+    margin: 0;
+    font-size: 7.75em;
+}
+
+
+.image--horizontal {
+    transform: scaleX(-1)
+}

@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, use } from "react";
 import MainViewContainer from "@/app/components/utils/container";
-import Map from "@/app/components/Map";
+import Map from "@/app/components/pdp/map/Map";
 import Header from "@/app/components/Header";
 import Image from "next/image";
 import PdpCalender from "@/app/components/pdp/calendar/PdpCalendar";
+import ReviewContainer from "@/app/components/pdp/reviews/ReviewSection"
 
 import {
   PropertyDetailsContextProvider,
@@ -40,6 +41,7 @@ const ListingWrapper = ({ listingId }) => {
       <ListingTitle />
       <ListingGallery />
       <ListingTwoColumn />
+      <ReviewContainer />
       <Map />
     </div>
   );
@@ -200,7 +202,7 @@ const PropertyInfo = () => {
     <div className="py-4 border-b-1 border-gray-300">
       <h1 className="text-2xl font-medium">{property_type} in the overworld</h1>
       <p className="font-normal">
-        {bedrooms * 2} guests - {bedrooms} bedrooms - {bedrooms * 2} beds -{" "}
+        {bedrooms * 2} guests · {bedrooms} bedroomss · {bedrooms * 2} beds · {" "}
         {bathrooms} bath
       </p>
       <p className="font-bold"> 4.4/5 - 100 reviews</p>
@@ -210,7 +212,7 @@ const PropertyInfo = () => {
 
 const HostProfile = () => {
   return (
-    <div className="py-8 border-b-1 border-gray-300">
+    <div id="hostprofile-section" className="py-8 border-b-1 border-gray-300">
       <div className="flex gap-4 ">
         <Image
           className="rounded-full"
@@ -269,7 +271,7 @@ const PropertyDescription = () => {
   }
   const { property_description } = propertyDetailsResponse;
   return (
-    <p className="font-light text-gray-800 py-8 border-b-1 border-gray-300">
+    <p className="font-light text-gray-800 py-8">
       {property_description}
     </p>
   );
