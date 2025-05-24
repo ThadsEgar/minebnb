@@ -1,3 +1,9 @@
 .dynamicmap__header {
     font-size: 2em;
 }
+
+.dynamicmap__container {
+    border-top: 2px;
+    border-style: solid;
+    border-color: var(--color-gray-300);
+}

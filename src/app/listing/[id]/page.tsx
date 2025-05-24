@@ -11,6 +11,7 @@ import {
   PropertyDetailsContextProvider,
   usePdp,
 } from "../../context/PropertyDetailsContext";
+import { Footer } from "@/app/components/shared/Footer/Footer";
 
 export default function PropertyListingPage({ params }) {
   const unwrappedParams = use(params);
@@ -23,6 +24,7 @@ export default function PropertyListingPage({ params }) {
         <ListingWrapper listingId={(unwrappedParams as any).id} />
         </div>
       </MainViewContainer>
+      <Footer />
     </PropertyDetailsContextProvider>
   );
 }
