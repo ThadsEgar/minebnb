@@ -7,10 +7,10 @@ const PdpCalender = () => {
 
   return (
     <div className="calendar">
-      <CalendarPrice price={price} nights={3} />
+      <CalendarPrice price={price} nights={1} />
       <div className="calendar__inputgroup">
-        <CalendarInput text={"CHECK-IN"} date={"5/12/34"} />
-        <CalendarInput text={"CHECK-OUT"} date={"5/12/34"} />
+        <CalendarInput text={"CHECK-IN"} date={"11/12/34"} />
+        <CalendarInput text={"CHECK-OUT"} date={"12/12/34"} />
       </div>
       <GuestInput />
       <ReserveButton />
@@ -22,7 +22,7 @@ const CalendarPrice = ({ price, nights }) => {
   return (
     <div className="calendar__price">
       <p className="calendar__emeralds">{price} emeralds</p>
-      <p className="calendar__nights">for {nights} nights</p>
+      <p className="calendar__nights">for {nights} night</p>
     </div>
   );
 };

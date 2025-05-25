@@ -15,6 +15,7 @@
 }
 
 .review__smalldescription {
+    font-size: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -22,9 +23,12 @@
 }
 
 .review__longdescription {
+    font-size: 1rem;
+    color: grey;    
     display: flex;
     flex-direction: row;
     justify-content: center;
+    text-align:center;
     align-items: center;
 }
 

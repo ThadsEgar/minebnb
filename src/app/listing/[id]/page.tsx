@@ -20,7 +20,7 @@ export default function PropertyListingPage({ params }) {
   // TODO TYPE THIS
   return (
     <PropertyDetailsContextProvider>
-      <MainViewContainer className="mx-64">
+      <MainViewContainer className="mx-64 sm:mx-4 md:mx-16 lg:mx-32 xl:mx-48 2xl:mx-64">
         <div className="text-black">
           <ListingWrapper listingId={(unwrappedParams as any).id} />
         </div>
@@ -55,7 +55,11 @@ const ListingTitle = () => {
   const { propertyDetailsResponse, loading } = usePdp();
 
   if (loading || !propertyDetailsResponse) {
-    return <div>Loading...</div>;
+    return (
+    <div role="status" className="max-w-sm animate-pulse py-8">
+      <div className="h-8 w-10/12 bg-gray-100 rounded-full dark:bg-gray-300 mb-4"></div>
+      <span className="sr-only">Loading...</span>
+  </div>);
   }
 
   const { title } = propertyDetailsResponse;
@@ -202,16 +206,16 @@ const PropertyInfo = () => {
   if (loading || !propertyDetailsResponse) {
     return <div>Loading...</div>;
   }
-  const { property_type, bedrooms, bathrooms } = propertyDetailsResponse;
-
+  const { property_type, bedrooms, bathrooms, reviewOverview } = propertyDetailsResponse;
+  const {count, average} = reviewOverview
   return (
-    <div className="py-4 border-b-1 border-gray-300">
+    <div className="pb-4 border-b-1 border-gray-300">
       <h1 className="text-2xl font-medium">{property_type} in the overworld</h1>
       <p className="font-normal">
         {bedrooms * 2} guests · {bedrooms} bedrooms · {bedrooms * 2} beds ·{" "}
         {bathrooms} bath
       </p>
-      <p className="font-bold">{`4.4/5.0 - 100 reviews`}</p>
+      <p className="font-bold">{`${average} / 5.00 · ${count} reviews`}</p>
     </div>
   );
 };

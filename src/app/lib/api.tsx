@@ -30,16 +30,20 @@ export const getPropertyDetailsPage = async (propertyId) => {
         ...data,
         image_urls: convertImageUrls(data.Images),
         reviewOverview: reviewsOverview(data.Reviews)
-
     }
+
+    console.log(convertedPdp)
     
     return convertedPdp
 }
 
 const reviewsOverview = (reviews) => {
     const reviewCount = reviews.length
-    const reviewAverage = reviews.reduce((acc, curr) => acc += curr) / reviewCount
-    return 
+    const reviewAverage = reviews.reduce((acc, curr) => acc += curr.rating, 0) / reviewCount
+    return {
+        count: reviewCount,
+        average: reviewAverage.toFixed(2)
+    }
 }
 const convertImageUrls = (images) => {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
