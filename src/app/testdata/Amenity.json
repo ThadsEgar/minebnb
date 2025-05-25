@@ -1,0 +1,36 @@
+{
+    "amenities": [
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        },
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        },
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        }, 
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        },
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        },
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        },
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        },
+        {
+            "amenityName": "TestName",
+            "amenityIcon": "TestAmenity"
+        }
+    ]
+}

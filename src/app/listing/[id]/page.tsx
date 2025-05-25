@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, use } from "react";
+import React, { useState, useEffect, use } from "react";
 import MainViewContainer from "@/app/components/utils/container";
 import Map from "@/app/components/pdp/map/Map";
 import Header from "@/app/components/Header";
 import Image from "next/image";
 import PdpCalender from "@/app/components/pdp/calendar/PdpCalendar";
 import ReviewContainer from "@/app/components/pdp/reviews/ReviewSection";
+import AmenityData from '@/app/testdata/Amenity.json'
 
 import {
   PropertyDetailsContextProvider,
@@ -31,6 +32,7 @@ export default function PropertyListingPage({ params }) {
 
 const ListingWrapper = ({ listingId }) => {
   const { setPropertyId } = usePdp();
+  const [hardCodedAmenities, setHardCodedAmenities] = useState(AmenityData);
 
   useEffect(() => {
     console.log("loaded");
@@ -43,7 +45,7 @@ const ListingWrapper = ({ listingId }) => {
       <ListingTitle />
       <ListingGallery />
       <div className="relative">
-        <ListingTwoColumn />
+        <ListingTwoColumn amenityData={hardCodedAmenities}/>
       </div>
       <ReviewContainer />
       <Map />
@@ -175,7 +177,7 @@ const ListingGallery = () => {
   );
 };
 
-const ListingTwoColumn = () => {
+const ListingTwoColumn = ({amenityData}) => {
   return (
     <div className="py-4">
       <div className="flex justify-between">
@@ -185,6 +187,7 @@ const ListingTwoColumn = () => {
             <HostProfile />
             <PropertyHighlights />
             <PropertyDescription />
+            <AmenitySection amenities={amenityData} />
           </div>
         </div>
         <div className="ml-16 w-1/3 justify-items-end">
@@ -220,7 +223,7 @@ const HostProfile = () => {
       <div className="flex gap-4 ">
         <Image
           className="rounded-full"
-          src="https://placehold.co/40x40/png?text=Image"
+          src="/host/steve.png"
           alt="HostProfile"
           width={50}
           height={50}
@@ -275,20 +278,39 @@ const PropertyDescription = () => {
   }
   const { property_description } = propertyDetailsResponse;
   return (
-    <p className="font-light text-gray-800 py-8">{property_description}</p>
+    <p className="font-light text-gray-800 py-8 border-gray-300 border-b-1">{property_description}</p>
   );
 };
 
-const AmenitySection = () => {
+const AmenitySection = ({amenities}) => {
+  const [amenitiesList, setAmenitiesList] = useState([]);
+  useEffect(() => {
+    setAmenitiesList(amenities.amenities)
+  }, [])
   return (
-    <p>What this humble abode offers</p>
+    <div className="py-8">
+      <h2 className="text-2xl pb-8">Featured Amenities</h2>
+      <div id="amenitiesContainer" className="grid grid-cols-2 gap-y-4">
+      {
+        amenitiesList.map((amenity, index) => {
+          const icon = amenity.amenityIcon
+          const name = amenity.amenityName
+          console.log(amenity)
+          // TODO: change the key to something else than index
+          return <AmenityPair key={index} amenityIcon={icon} amenityName={name}/>
+        })
+      }
+      </div>
+
+    </div>
   );
 }
 
-const AmenityPair = ({amenityIcon, amenity}) => {
+const AmenityPair = ({amenityIcon, amenityName}) => {
   return (
-    <div>
-
+    <div className="flex flex-row gap-x-4">
+      <p>{amenityIcon}</p>
+      <p>{amenityName}</p>
     </div>
   )
 }

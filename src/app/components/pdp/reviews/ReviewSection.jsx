@@ -19,7 +19,7 @@ const ReviewsOverviewContainer = ({reviewScore=4.32}) => {
             <Image className="image--horizontal" src="/pdpReviews/pickaxe.png" alt="Image" width={200} height={30}/>
         </div>
         <p className="review__smalldescription">Miner's Favorite</p>
-        <p className="review__longdescription">This house is a favorite based on ratings, reviews from fellow Villager's.</p>
+        <p className="review__longdescription">This house is a favorite based on ratings, reviews from fellow Villagers.</p>
     </div>
   )
 };
