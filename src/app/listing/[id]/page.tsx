@@ -6,7 +6,7 @@ import Header from "@/app/components/Header";
 import Image from "next/image";
 import PdpCalender from "@/app/components/pdp/calendar/PdpCalendar";
 import ReviewContainer from "@/app/components/pdp/reviews/ReviewSection";
-import AmenityData from '@/app/testdata/Amenity.json'
+import AmenityData from "@/app/testdata/Amenity.json";
 
 import {
   PropertyDetailsContextProvider,
@@ -35,7 +35,6 @@ const ListingWrapper = ({ listingId }) => {
   const [hardCodedAmenities, setHardCodedAmenities] = useState(AmenityData);
 
   useEffect(() => {
-    console.log("loaded");
     setPropertyId(listingId);
   }, [listingId]);
 
@@ -45,7 +44,7 @@ const ListingWrapper = ({ listingId }) => {
       <ListingTitle />
       <ListingGallery />
       <div className="relative">
-        <ListingTwoColumn amenityData={hardCodedAmenities}/>
+        <ListingTwoColumn amenityData={hardCodedAmenities} />
       </div>
       <ReviewContainer />
       <Map />
@@ -177,7 +176,7 @@ const ListingGallery = () => {
   );
 };
 
-const ListingTwoColumn = ({amenityData}) => {
+const ListingTwoColumn = ({ amenityData }) => {
   return (
     <div className="py-4">
       <div className="flex justify-between">
@@ -209,10 +208,10 @@ const PropertyInfo = () => {
     <div className="py-4 border-b-1 border-gray-300">
       <h1 className="text-2xl font-medium">{property_type} in the overworld</h1>
       <p className="font-normal">
-        {bedrooms * 2} guests · {bedrooms} bedroomss · {bedrooms * 2} beds ·{" "}
+        {bedrooms * 2} guests · {bedrooms} bedrooms · {bedrooms * 2} beds ·{" "}
         {bathrooms} bath
       </p>
-      <p className="font-bold"> 4.4/5 - 100 reviews</p>
+      <p className="font-bold">{`4.4/5.0 - 100 reviews`}</p>
     </div>
   );
 };
@@ -278,39 +277,39 @@ const PropertyDescription = () => {
   }
   const { property_description } = propertyDetailsResponse;
   return (
-    <p className="font-light text-gray-800 py-8 border-gray-300 border-b-1">{property_description}</p>
+    <p className="font-light text-gray-800 py-8 border-gray-300 border-b-1">
+      {property_description}
+    </p>
   );
 };
 
-const AmenitySection = ({amenities}) => {
+const AmenitySection = ({ amenities }) => {
   const [amenitiesList, setAmenitiesList] = useState([]);
   useEffect(() => {
-    setAmenitiesList(amenities.amenities)
-  }, [])
+    setAmenitiesList(amenities.amenities);
+  }, []);
   return (
     <div className="py-8">
       <h2 className="text-2xl pb-8">Featured Amenities</h2>
       <div id="amenitiesContainer" className="grid grid-cols-2 gap-y-4">
-      {
-        amenitiesList.map((amenity, index) => {
-          const icon = amenity.amenityIcon
-          const name = amenity.amenityName
-          console.log(amenity)
+        {amenitiesList.map((amenity, index) => {
+          const icon = amenity.amenityIcon;
+          const name = amenity.amenityName;
           // TODO: change the key to something else than index
-          return <AmenityPair key={index} amenityIcon={icon} amenityName={name}/>
-        })
-      }
+          return (
+            <AmenityPair key={index} amenityIcon={icon} amenityName={name} />
+          );
+        })}
       </div>
-
     </div>
   );
-}
+};
 
-const AmenityPair = ({amenityIcon, amenityName}) => {
+const AmenityPair = ({ amenityIcon, amenityName }) => {
   return (
     <div className="flex flex-row gap-x-4">
       <p>{amenityIcon}</p>
       <p>{amenityName}</p>
     </div>
-  )
-}
+  );
+};
