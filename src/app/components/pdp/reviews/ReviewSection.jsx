@@ -23,7 +23,6 @@ const ReviewsContainer = () => {
 const ReviewsOverviewContainer = () => {
   const { propertyDetailsResponse, loading } = usePdp();
   if (!loading && propertyDetailsResponse) {
-    console.log("APPLES", propertyDetailsResponse);
     const { reviewOverview } = propertyDetailsResponse;
     const { average } = reviewOverview;
     return (

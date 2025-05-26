@@ -12,7 +12,7 @@ const Header = () => {
           <SearchBar />
           <div className="">
             <ul className="text-black flex gap-8 py-8 justify-between">
-              <li className="hover:bg-green-300 px-3 py-2 text-xl font-medium transition-colors duration-200 font-sans rounded-full outline-1">
+              <li className="hover:bg-green-300 px-3 py-2 text-sm font-medium transition-colors duration-200 font-sans rounded-full outline-1">
                 <a href="https://www.linkedin.com/in/thads-michael-egar">Contact Me</a>
               </li>
             </ul>

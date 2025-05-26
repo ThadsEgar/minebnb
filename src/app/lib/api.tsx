@@ -20,7 +20,8 @@ export const getPropertyDetailsPage = async (propertyId) => {
     const { data, error } = await supabase.from('Properties').select(
         `*, 
         Images!listing_id(*),
-        Reviews!listing_id(*)
+        Reviews!listing_id(*),
+        Amenities!listing_id(*)
         `
     ).eq('id', propertyId).single();
     if (error) {

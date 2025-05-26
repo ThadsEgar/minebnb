@@ -1,0 +1,24 @@
+## Amenties
+crafting_station_hub
+max_enchanting_setup
+organized_chest_storage
+secure_nether_portal
+automated_food_farm
+potion_brewing_kit
+comfortable_bedroom
+simple_xp_grinder
+armor_stand_and_repair
+scenic_viewpoint
+perimeter_defense
+local_guidebook
+minecart_transport
+passive_mob_pen
+fishing_dock_access
+jukebox_with_discs
+exploration_map_wall
+infinite_water_source
+villager_trading_hall
+archery_target_range
+
+
+## Other ...

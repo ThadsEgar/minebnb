@@ -6,7 +6,7 @@ import Header from "@/app/components/Header";
 import Image from "next/image";
 import PdpCalender from "@/app/components/pdp/calendar/PdpCalendar";
 import ReviewContainer from "@/app/components/pdp/reviews/ReviewSection";
-import AmenityData from "@/app/testdata/Amenity.json";
+import AmenitySection from "@/app/components/pdp/amenities/AmenitySection";
 
 import {
   PropertyDetailsContextProvider,
@@ -32,7 +32,6 @@ export default function PropertyListingPage({ params }) {
 
 const ListingWrapper = ({ listingId }) => {
   const { setPropertyId } = usePdp();
-  const [hardCodedAmenities, setHardCodedAmenities] = useState(AmenityData);
 
   useEffect(() => {
     setPropertyId(listingId);
@@ -44,7 +43,7 @@ const ListingWrapper = ({ listingId }) => {
       <ListingTitle />
       <ListingGallery />
       <div className="relative">
-        <ListingTwoColumn amenityData={hardCodedAmenities} />
+        <ListingTwoColumn />
       </div>
       <ReviewContainer />
       <Map />
@@ -180,7 +179,7 @@ const ListingGallery = () => {
   );
 };
 
-const ListingTwoColumn = ({ amenityData }) => {
+const ListingTwoColumn = () => {
   return (
     <div className="py-4">
       <div className="flex justify-between">
@@ -190,7 +189,7 @@ const ListingTwoColumn = ({ amenityData }) => {
             <HostProfile />
             <PropertyHighlights />
             <PropertyDescription />
-            <AmenitySection amenities={amenityData} />
+            <AmenitySection />
           </div>
         </div>
         <div className="ml-16 w-1/3 justify-items-end">
@@ -284,36 +283,5 @@ const PropertyDescription = () => {
     <p className="font-light text-gray-800 py-8 border-gray-300 border-b-1">
       {property_description}
     </p>
-  );
-};
-
-const AmenitySection = ({ amenities }) => {
-  const [amenitiesList, setAmenitiesList] = useState([]);
-  useEffect(() => {
-    setAmenitiesList(amenities.amenities);
-  }, []);
-  return (
-    <div className="py-8">
-      <h2 className="text-2xl pb-8">Featured Amenities</h2>
-      <div id="amenitiesContainer" className="grid grid-cols-2 gap-y-4">
-        {amenitiesList.map((amenity, index) => {
-          const icon = amenity.amenityIcon;
-          const name = amenity.amenityName;
-          // TODO: change the key to something else than index
-          return (
-            <AmenityPair key={index} amenityIcon={icon} amenityName={name} />
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-const AmenityPair = ({ amenityIcon, amenityName }) => {
-  return (
-    <div className="flex flex-row gap-x-4">
-      <p>{amenityIcon}</p>
-      <p>{amenityName}</p>
-    </div>
   );
 };
