@@ -49,3 +49,9 @@
 <a href="https://www.flaticon.com/free-icons/villager" title="villager icons">Villager icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/archer" title="archer icons">Archer icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/idea" title="idea icons">Idea icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/correct" title="correct icons">Correct icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/price" title="price icons">Price icons created by Freepik - Flaticon</a>

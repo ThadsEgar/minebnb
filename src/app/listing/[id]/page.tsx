@@ -55,10 +55,11 @@ const ListingTitle = () => {
 
   if (loading || !propertyDetailsResponse) {
     return (
-    <div role="status" className="max-w-sm animate-pulse py-8">
-      <div className="h-8 w-10/12 bg-gray-100 rounded-full dark:bg-gray-300 mb-4"></div>
-      <span className="sr-only">Loading...</span>
-  </div>);
+      <div role="status" className="max-w-sm animate-pulse py-8">
+        <div className="h-8 w-10/12 bg-gray-100 rounded-full dark:bg-gray-300 mb-4"></div>
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
   }
 
   const { title } = propertyDetailsResponse;
@@ -205,8 +206,9 @@ const PropertyInfo = () => {
   if (loading || !propertyDetailsResponse) {
     return <div>Loading...</div>;
   }
-  const { property_type, bedrooms, bathrooms, reviewOverview } = propertyDetailsResponse;
-  const {count, average} = reviewOverview
+  const { property_type, bedrooms, bathrooms, reviewOverview } =
+    propertyDetailsResponse;
+  const { count, average } = reviewOverview;
   return (
     <div className="pb-4 border-b-1 border-gray-300">
       <h1 className="text-2xl font-medium">{property_type} in the overworld</h1>
@@ -240,31 +242,40 @@ const HostProfile = () => {
 };
 
 const PropertyHighlights = () => {
-  return (
-    <div className="py-8 border-b-1 border-gray-300">
-      <PropertyHighlight
-        icon="🏠"
-        text="Cave"
-        subtext="1 hour away from the nearest cave"
-      />
-      <PropertyHighlight
-        icon="🏠"
-        text="Self check-in"
-        subtext="Check yourself in with the lockbox"
-      />
-      <PropertyHighlight
-        icon="🏠"
-        text="Hot Springs"
-        subtext="Soak in the hot springs"
-      />
-    </div>
-  );
+  const { propertyDetailsResponse, loading } = usePdp();
+  if (loading || !propertyDetailsResponse) {
+    return <div>Loading...</div>;
+  } else {
+    const { highlights } = propertyDetailsResponse;
+    return (
+      <div className="py-8 border-b-1 border-gray-300">
+        {highlights.map((highlight, idx) => {
+          return (
+            <PropertyHighlight
+              key={idx}
+              icon={idx}
+              text={highlight.highlight_name}
+              subtext={highlight.highlight_description}
+            />
+          );
+        })}
+      </div>
+    );
+  }
 };
 
 const PropertyHighlight = ({ icon, text, subtext }) => {
   return (
-    <div className="flex flex-row gap-12">
-      <div className="text-4xl flex justify-center items-center">{icon}</div>
+    <div className="flex flex-row gap-12 py-2">
+      <div className="flex items-center justify-center w-8 h-8">
+        <Image
+          src={`/highlights/${icon}.png`}
+          alt={subtext}
+          width={32}
+          height={32}
+          className="object-contain"
+        />
+      </div>
       <div className="flex flex-col justify-center">
         <div className="font-bold text-gray-800">{text}</div>
         <div className="font-light text-gray-500">{subtext}</div>
