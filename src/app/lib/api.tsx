@@ -135,8 +135,43 @@ const HIGHLIGHTS = [
         highlight_name: "Scenic Retreat",
         highlight_description: "A peaceful getaway with scenic views, comfortable bedrooms, and a fishing dock.",
         requirements: ["scenic_viewpoint", "comfortable_bedroom", "fishing_dock_access"]
+    },
+    {
+        highlight_name: "Adventurer's Lookout",
+        highlight_description: "A scenic viewpoint with a guidebook for explorers.",
+        requirements: ["scenic_viewpoint", "local_guidebook"]
+    },
+    {
+        highlight_name: "Potion Master's Corner",
+        highlight_description: "A compact setup for potion brewing and enchanting.",
+        requirements: ["potion_brewing_kit", "max_enchanting_setup"]
+    },
+    {
+        highlight_name: "Fisherman's Refuge",
+        highlight_description: "A cozy fishing dock with jukebox entertainment.",
+        requirements: ["fishing_dock_access", "jukebox_with_discs"]
+    },
+    {
+        highlight_name: "Defender's Outpost",
+        highlight_description: "A secure base with perimeter defenses and a Nether portal.",
+        requirements: ["perimeter_defense", "secure_nether_portal"]
+    },
+    {
+        highlight_name: "Crafting Enthusiast's Nook",
+        highlight_description: "A small setup for crafting and organized storage.",
+        requirements: ["crafting_station_hub", "organized_chest_storage"]
+    },
+    {
+        highlight_name: "Explorer's Haven",
+        highlight_description: "A comfortable bedroom with a local guidebook for adventurers.",
+        requirements: ["comfortable_bedroom", "local_guidebook"]
+    },
+    {
+        highlight_name: "Scenic Fishing Spot",
+        highlight_description: "A peaceful fishing dock with scenic views.",
+        requirements: ["fishing_dock_access", "scenic_viewpoint"]
     }
-]
+];
 
 
 const ALL_AMENITIES = [
