@@ -50,3 +50,7 @@ const convertImageUrls = (images) => {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
     return images.map((image) => `${supabaseUrl}/storage/v1/object/minebnb-s3/${image.file_path}`)
 }
+
+const calculatePropertyHighlights = (amenities) => {
+    
+}

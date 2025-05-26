@@ -64,7 +64,7 @@ const ListingTitle = () => {
   const { title } = propertyDetailsResponse;
   return (
     <div className="py-4">
-      <div className="text-4xl font-medium flex flex-row content-center justify-between">
+      <div className="text-4xl flex text-gray-900 flex-row content-center justify-between">
         <div>
           <h1>{title}</h1>
         </div>
@@ -83,7 +83,7 @@ const ListingGallery = () => {
   if (loading || !propertyDetailsResponse) {
     return (
       <div className="py-4">
-        <div className="flex flex-row gap-4 rounded-4">
+        <div className="flex flex-row gap-4 rounded-8">
           <div className="w-1/2">
             <Image
               className="animate-pulse"
@@ -137,7 +137,7 @@ const ListingGallery = () => {
             src={image_urls[0]}
             alt="House"
             fill={true}
-            className="object-cover"
+            className="object-cover rounded-l-2xl"
           />
         </div>
         <div className="w-1/2 grid grid-cols-2 gap-4">
@@ -154,7 +154,7 @@ const ListingGallery = () => {
               src={image_urls[2]}
               alt="House"
               fill={true}
-              className="object-cover"
+              className="object-cover rounded-tr-2xl"
             />
           </div>
           <div className="relative h-[245px]">
@@ -170,7 +170,7 @@ const ListingGallery = () => {
               src={image_urls[4]}
               alt="House"
               fill={true}
-              className="object-cover"
+              className="object-cover rounded-br-2xl"
             />
           </div>
         </div>
