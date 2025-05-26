@@ -131,7 +131,7 @@ const ListingGallery = () => {
   const { image_urls } = propertyDetailsResponse;
   return (
     <div className="py-4">
-      <div className="flex flex-row gap-2 rounded-4">
+      <div className="flex flex-row gap-4 rounded-4">
         <div className="w-1/2 relative h-[510px]">
           <Image
             src={image_urls[0]}
@@ -140,7 +140,7 @@ const ListingGallery = () => {
             className="object-cover rounded-l-2xl"
           />
         </div>
-        <div className="w-1/2 grid grid-cols-2 gap-2">
+        <div className="w-1/2 grid grid-cols-2 gap-4">
           <div className="relative h-[245px]">
             <Image
               src={image_urls[1]}
