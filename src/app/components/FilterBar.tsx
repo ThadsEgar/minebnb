@@ -15,7 +15,7 @@ const Filters = () => {
     setFilters(filter);
   }
     return (
-      <div className="border-b-2 border-gray-300 py-4">
+      <div className="py-4">
         <div className="flex items-center justify-center min-h-3 text-black gap-8">
           {
             mockFilterPairs.map((filterPair) => (
@@ -23,6 +23,7 @@ const Filters = () => {
             ))
           }
         </div>
+        <div className="absolute left-0 right-0 bottom-0 h-1 shadow"></div>
       </div>
     )
   }
@@ -32,9 +33,9 @@ const Filter = ({filterPair, filterClickCallback}) => {
   const filterName = filterPair.name;
   const imageLocation = filterPair.imageLocation;
   return (
-    <button className="flex flex-col p-1 items-center gap-2 text-gray-500 hover:bg-gray-200" onClick={() => filterClickCallback(filterName)}>
+    <button className="flex flex-col p-1 items-center gap-2 text-gray-800 hover:bg-gray-200 rounded-xl" onClick={() => filterClickCallback(filterName)}>
         <Image src={`${imageLocation}`} alt="Filter" width={30} height={30} />
-        <div className="text-sm">{filterName}</div>
+        <div className="text-sm font-semibold">{filterName}</div>
     </button>
   )
 }

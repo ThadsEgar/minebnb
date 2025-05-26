@@ -39,7 +39,7 @@ const ListingWrapper = ({ listingId }) => {
 
   return (
     <div>
-      <Header />
+      <Header isPdp={true}/>
       <ListingTitle />
       <ListingGallery />
       <div className="relative">
