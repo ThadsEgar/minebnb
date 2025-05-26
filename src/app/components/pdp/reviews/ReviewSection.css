@@ -42,10 +42,57 @@
 
 .review__score {
     margin: 0;
-    font-size: 7.75em;
+    font-size: 5em;
 }
-
 
 .image--horizontal {
     transform: scaleX(-1)
+}
+
+.review__cards__container {
+    display:grid;
+    padding-top: 32px;
+    justify-content: center;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.review__summary__card {
+    border-right: 1px;
+    border-style: solid;
+    border-color: rgb(159, 159, 159);
+    margin-right:32px;
+}
+
+.review__summary__card__text {
+    padding-bottom: 8px;
+    font-size: .75em;
+    font-weight: bold;
+}
+
+.review__summary__card__subtext {
+    font-size: .66em;
+}
+
+.review__progresss__bar__container {
+    display: flex;
+    padding-right: 16px;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review__progress__bar {
+    display: flex;
+    border-radius: 10%;
+    height: 4px;
+    width: 128px;
+    background-color: rgb(167, 167, 167);
+}
+
+.review__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: .75em;
+    font-weight: bold;
 }
