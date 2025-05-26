@@ -57,9 +57,6 @@
 }
 
 .review__summary__card {
-    border-right: 1px;
-    border-style: solid;
-    border-color: rgb(159, 159, 159);
     margin-right:32px;
 }
 
@@ -95,4 +92,8 @@
     justify-content: space-between;
     font-size: .75em;
     font-weight: bold;
+    border-left: 1px;
+    padding-left: 32px;
+    border-style: solid;
+    border-color: rgb(184, 184, 184);
 }
