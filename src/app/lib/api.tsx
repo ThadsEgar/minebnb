@@ -63,78 +63,78 @@ const calculatePropertyHighlights = (amenities) => {
 const HIGHLIGHTS = [
     {
         highlight_name: "Master Artisan's Workshop",
-        highlight_description: "A setup for crafting, enchanting, and brewing gear.",
-        requirements: ["crafting_station_hub", "max_enchanting_setup", "potion_brewing_kit"]
+        highlight_description: "Features crafting stations and organized storage for artisans.",
+        requirements: ["crafting_station_hub", "max_enchanting_setup", "organized_chest_storage"]
     },
     {
         highlight_name: "The Secure Homesteader",
-        highlight_description: "Strong defenses and self-sufficiency for long-term living.",
-        requirements: ["perimeter_defense", "automated_food_farm", "comfortable_bedroom"]
+        highlight_description: "Equipped with perimeter defenses and a secure Nether portal.",
+        requirements: ["perimeter_defense", "automated_food_farm", "secure_nether_portal"]
     },
     {
         highlight_name: "Nether-Bound & Prepared",
-        highlight_description: "Equipped for Nether exploration and resource gathering.",
-        requirements: ["secure_nether_portal", "potion_brewing_kit", "organized_chest_storage"]
+        highlight_description: "Includes a secure Nether portal and organized storage.",
+        requirements: ["secure_nether_portal", "organized_chest_storage"]
     },
     {
         highlight_name: "Peak Performance Station",
-        highlight_description: "Max out gear and abilities efficiently.",
-        requirements: ["max_enchanting_setup", "simple_xp_grinder", "potion_brewing_kit"]
+        highlight_description: "XP grinding facilities and crafting stations.",
+        requirements: ["max_enchanting_setup", "simple_xp_grinder", "crafting_station_hub"]
     },
     {
         highlight_name: "Grand Cartographer's Lodge",
-        highlight_description: "Ideal for exploration, mapping, and discoveries.",
-        requirements: ["local_guidebook", "exploration_map_wall", "scenic_viewpoint"]
+        highlight_description: "Perfect for map exploration and a guidebook for adventurers.",
+        requirements: ["exploration_map_wall", "scenic_viewpoint", "local_guidebook"]
     },
     {
         highlight_name: "Tranquil Farming Haven",
-        highlight_description: "Focus on sustainable farming and animal husbandry.",
-        requirements: ["automated_food_farm", "passive_mob_pen", "fishing_dock_access"]
+        highlight_description: "Supports automated farming, animal care, and scenic views.",
+        requirements: ["automated_food_farm", "passive_mob_pen", "scenic_viewpoint"]
     },
     {
         highlight_name: "Thriving Trade Hub",
-        highlight_description: "Efficient and safe villager trading center.",
-        requirements: ["villager_trading_hall", "perimeter_defense", "crafting_station_hub"]
+        highlight_description: "Optimized for villager trading, crafting, and organized storage.",
+        requirements: ["villager_trading_hall", "crafting_station_hub", "organized_chest_storage"]
     },
     {
         highlight_name: "Warrior's Proving Grounds",
-        highlight_description: "Hone combat skills and farm mob drops.",
-        requirements: ["simple_xp_grinder", "archery_target_range", "potion_brewing_kit"]
+        highlight_description: "Designed for combat training, XP farming, and archery practice.",
+        requirements: ["simple_xp_grinder", "archery_target_range", "max_enchanting_setup"]
     },
     {
         highlight_name: "Lakeside Leisure Retreat",
-        highlight_description: "Relax with water-themed recreation.",
-        requirements: ["fishing_dock_access", "scenic_viewpoint", "jukebox_with_discs"]
+        highlight_description: "Relax by the fishing dock with scenic views and jukebox entertainment.",
+        requirements: ["fishing_dock_access", "scenic_viewpoint"]
     },
     {
         highlight_name: "Well-Rounded Base Camp",
-        highlight_description: "A versatile base with key comforts and security.",
-        requirements: ["crafting_station_hub", "comfortable_bedroom", "organized_chest_storage"]
+        highlight_description: "A versatile base with crafting, comfortable bedrooms, and enchanting setups.",
+        requirements: ["crafting_station_hub", "comfortable_bedroom", "max_enchanting_setup"]
     },
     {
         highlight_name: "Explorer's Rest Stop",
-        highlight_description: "A cozy base for adventurers to rest and prepare.",
+        highlight_description: "A cozy base with a guidebook and comfortable bedrooms for adventurers.",
         requirements: ["comfortable_bedroom", "local_guidebook"]
     },
     {
         highlight_name: "Fishing Enthusiast's Paradise",
-        highlight_description: "Perfect for fishing and relaxing by the water.",
-        requirements: ["fishing_dock_access", "jukebox_with_discs"]
+        highlight_description: "Ideal for fishing with jukebox entertainment and scenic views.",
+        requirements: ["fishing_dock_access", "jukebox_with_discs", "scenic_viewpoint"]
     },
     {
         highlight_name: "Defender's Fortress",
-        highlight_description: "A stronghold for maximum security.",
-        requirements: ["perimeter_defense", "organized_chest_storage"]
+        highlight_description: "A secure stronghold with perimeter defenses and organized storage.",
+        requirements: ["perimeter_defense", "organized_chest_storage", "crafting_station_hub"]
     },
     {
         highlight_name: "Brewer's Nook",
-        highlight_description: "Compact setup for potion brewing.",
-        requirements: ["potion_brewing_kit", "organized_chest_storage"]
+        highlight_description: "Compact setup for potion brewing, organized storage, and enchanting setups.",
+        requirements: ["potion_brewing_kit", "organized_chest_storage", "max_enchanting_setup"]
     },
     {
         highlight_name: "Scenic Retreat",
-        highlight_description: "A peaceful getaway with great views.",
-        requirements: ["scenic_viewpoint", "comfortable_bedroom"]
+        highlight_description: "A peaceful getaway with scenic views, comfortable bedrooms, and a fishing dock.",
+        requirements: ["scenic_viewpoint", "comfortable_bedroom", "fishing_dock_access"]
     }
 ]
 
