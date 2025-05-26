@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import { useSearch } from "../context/SearchContext";
 
 const ListingsContainer = () => {
-  const { searchResults, fetchSearchResults, loading, error, totalResults } = useSearch();
+  const { searchResults, fetchSearchResults, loading, error, totalResults } =
+    useSearch();
 
   const [visibleCount, setVisibleCount] = useState(0);
 
@@ -66,6 +67,7 @@ const ListingCard = ({ listing }) => {
   const propertyType = listing.property_type;
   const x_coordinate = listing.x_coordinate;
   const z_coordinate = listing.z_coordinate;
+  const srpHighlight = listing.highlight;
   const heroImage =
     listing.images.length > 0
       ? listing.images[0]
@@ -82,7 +84,7 @@ const ListingCard = ({ listing }) => {
           <div className="font-bold">
             {propertyType} at X: {x_coordinate} Z: {z_coordinate}
           </div>
-          <div className="font-light">Lake Views</div>
+          <div className="font-light">{srpHighlight}</div>
           <div className="font-medium">{price} Emeralds for 1 night</div>
         </div>
       </div>
@@ -113,14 +115,20 @@ const ListingImage = ({ heroImageUrl }) => {
         <div className="absolute top-3 left-2 text-black bg-neutral-100 rounded-full px-2 py-1">
           Miners favorite
         </div>
-        <div className="flex items-center absolute top-3 right-2 ">
-          <Image
-            className="object-cover transition-transform duration-300 hover:scale-120"
-            src={"/searchCards/heart.png"}
-            width={24}
-            height={24}
-            alt="Heart button"
-          />
+        <div className="flex items-center absolute top-2.5 right-2">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            className="transition-transform duration-300 hover:scale-115"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              fill="#bbbbbb"
+              stroke="white"
+              strokeWidth="1.5"
+            />
+          </svg>
         </div>
       </div>
     </div>
