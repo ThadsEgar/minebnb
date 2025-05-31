@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import "./SearchBar.css";
+import "./Searchbar.css";
 
 export const SearchBar = ({ isPdp = false, scrolled = false }) => {
   const [hovered, setHovered] = useState(false);
