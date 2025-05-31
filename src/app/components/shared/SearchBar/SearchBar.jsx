@@ -1,26 +1,15 @@
 import { useState } from "react";
 import Image from "next/image";
-import './styles.css';
-export const SearchBar = ({isPdp = false}) => {
+import "./SearchBar.css";
+
+export const SearchBar = ({ isPdp = false, scrolled = false }) => {
   const [hovered, setHovered] = useState(false);
-
-  const onMouseEnterCB = () => {
-    setHovered(true);
-  };
-
-  const onMouseLeaveCB = () => {
-    setHovered(false);
-  };
 
   return (
     <div
-      className={hovered ? "searchbar--hovered" : "searchbar"}
-      onMouseEnter={() => {
-        onMouseEnterCB();
-      }}
-      onMouseLeave={() => {
-        onMouseLeaveCB();
-      }}
+      className={`searchbar-container ${scrolled ? 'searchbar-mini' : 'searchbar-expanded'} ${hovered ? 'hovered' : ''}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <p className="searchbar__itemdiv">Anywhere</p>
       <p className="searchbar__itemdiv">Any week</p>
@@ -30,6 +19,7 @@ export const SearchBar = ({isPdp = false}) => {
         height={28}
         src="/SearchBar/searchicon.png"
         alt="Search Button"
+        className={scrolled ? "" : "ml-auto"}
       />
     </div>
   );

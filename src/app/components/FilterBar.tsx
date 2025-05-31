@@ -22,8 +22,8 @@ const Filters = () => {
               <Filter key={filterPair.name} filterPair={filterPair} filterClickCallback={filterClickCallback}/>
             ))
           }
+          <div className="border-b-1 border-gray-300"></div>
         </div>
-        <div className="absolute left-0 right-0 bottom-0 h-1 shadow"></div>
       </div>
     )
   }
