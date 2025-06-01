@@ -24,7 +24,7 @@ export default function Search() {
   return (
     <SearchContextProvider>
       <div className="pt-48">
-        <div className="fixed top-0 left-0 right-0 z-50 bg-[#F7F7F7] transition-all duration-300">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-[#F7F7F7] transition-all duration-500">
           <MainViewContainer>
             <Header scrolled={scrolled} />
           </MainViewContainer>
@@ -37,9 +37,14 @@ export default function Search() {
           <MainViewContainer>
             <Filters />
           </MainViewContainer>
-          <div className="border-b-1 border-gray-300"></div>
+          <div
+            className={`h-[1px] bg-gradient-to-b from-gray-300 to-transparent ${
+              scrolled ? "opacity-100" : "opacity-0"
+            } transition-opacity duration-300`}
+          />
         </div>
-        <div className={scrolled ? "pt-0" : "pt-16"}>
+
+        <div className={scrolled ? "pt-4" : "pt-20"}>
           <MainViewContainer>
             <ListingsContainer />
           </MainViewContainer>

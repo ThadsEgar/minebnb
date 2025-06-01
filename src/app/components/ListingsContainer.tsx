@@ -82,10 +82,13 @@ const ListingCard = ({ listing }) => {
         <ListingImage heroImageUrl={heroImage} />
         <div className="flex flex-col gap-0 px-1 pt-2 text-sm">
           <div className="font-bold">
-            {propertyType} at X: {x_coordinate} Z: {z_coordinate}
+            {propertyType} in the Overworld
           </div>
           <div className="font-light">{srpHighlight}</div>
-          <div className="font-medium">{price} Emeralds for 1 night</div>
+          <div>
+          <div className="font-medium"><span className="font-bold underline">{price} Emeralds</span> for 1 night</div>
+          </div>
+
         </div>
       </div>
     </Link>
