@@ -18,7 +18,7 @@ const PdpCalender = () => {
   );
 };
 
-const CalendarPrice = ({ price, nights }) => {
+const CalendarPrice = ({ price=0, nights=0 }) => {
   return (
     <div className="calendar__price">
       <p className="calendar__emeralds">{price} emeralds</p>
