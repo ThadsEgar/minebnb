@@ -55,3 +55,5 @@
 <a href="https://www.flaticon.com/free-icons/correct" title="correct icons">Correct icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/price" title="price icons">Price icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/3d-cube" title="3d-cube icons">3d-cube icons created by Freepik - Flaticon</a>
