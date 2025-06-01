@@ -29,7 +29,9 @@ export default function Search() {
             <Header scrolled={scrolled} />
           </MainViewContainer>
           <div
-            className={`border-b border-gray-300`}
+            className={`border-b border-gray-300 ${
+              scrolled ? "opacity-100" : "opacity-100"
+            }`}
           />
 
           <MainViewContainer>
@@ -37,9 +39,12 @@ export default function Search() {
           </MainViewContainer>
           <div className="border-b-1 border-gray-300"></div>
         </div>
-        <MainViewContainer>
-          <ListingsContainer />
-        </MainViewContainer>
+        <div className={scrolled ? "pt-0" : "pt-16"}>
+          <MainViewContainer>
+            <ListingsContainer />
+          </MainViewContainer>
+        </div>
+
         <Footer />
       </div>
     </SearchContextProvider>

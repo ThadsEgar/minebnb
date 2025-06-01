@@ -14,25 +14,53 @@
     color: black;
     padding: 12px 16px;
     gap: 12px;
+    transform: translateY(0);
+    transition: width 0.3s, height 0.3s, transform 0.3s, box-shadow 0.3s;
     
-    transition: all 0.2s ease;
   }
   
   .searchbar-mini {
     width: 356px;
     height: 56px;
-    margin-top: 0;
+    margin-top: 16px;
+    margin-bottom: 16px
   }
   
   .searchbar-expanded {
     width: 100%;
     max-width: 600px;
-    height: 58px;
+    height: 64px;
     font-size: 1.25em;
     font-weight: lighter;
+    transform: translateY(0);
+    margin-bottom: 24px;
+    transition: width 0.3s, height 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.08);
   }
   
   .searchbar-mini.hovered,
   .searchbar-expanded.hovered {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 8px 4px 4px rgba(0, 0, 0, 0.18);
   }
+
+  .traveltype {
+    display: flex;
+    font-size: 1.15rem;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    color: rgb(88, 88, 88);
+    animation: fadeInDown 0.4s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
